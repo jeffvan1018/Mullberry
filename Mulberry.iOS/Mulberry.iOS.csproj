@@ -128,11 +128,14 @@
     </PackageReference>
     <PackageReference Include="Xamarin.Forms" Version="4.8.0.1451" />
     <PackageReference Include="Xamarin.Essentials" Version="1.5.3.2" />
+    <PackageReference Include="Refractored.MvvmHelpers">
+      <Version>1.6.2</Version>
+    </PackageReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
     <ProjectReference Include="..\Mulberry\Mulberry.csproj">
-      <Project>{1E37BC97-8592-4124-89F4-1DBDA8F8AAA2}</Project>
+      <Project>{CD652911-0121-4410-B35F-B97C518A0A54}</Project>
       <Name>Mulberry</Name>
     </ProjectReference>
   </ItemGroup>
