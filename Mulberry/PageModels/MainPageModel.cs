@@ -23,6 +23,7 @@ namespace Mulberry.PageModels
         public MainPageModel()
         {
             authService = new AuthService();
+            simpleGraphService = new SimpleGraphService();
 
             SignInCommand = new AsyncCommand(SignInAsync);
             SignOutCommand = new AsyncCommand(SignOutAsync);
@@ -34,7 +35,7 @@ namespace Mulberry.PageModels
 
             if (await authService.SignInAsync())
             {
-                Name = "TBD";
+                Name = await simpleGraphService.GetNameAsync();
                 IsSignedIn = true;
             }
 
@@ -50,5 +51,6 @@ namespace Mulberry.PageModels
         }
 
         private readonly AuthService authService;
+        private readonly SimpleGraphService simpleGraphService;
     }
 }

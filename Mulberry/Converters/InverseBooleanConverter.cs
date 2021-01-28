@@ -1,10 +1,22 @@
 ﻿using System;
+using System.Globalization;
+using Xamarin.Forms;
+
 namespace Mulberry.Converters
 {
-    public class InverseBooleanConverter
+    public class InverseBooleanConverter: IValueConverter
     {
-        public InverseBooleanConverter()
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
+            if (value is bool val)
+                return !val;
+
+            return value;
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            return value;
         }
     }
 }

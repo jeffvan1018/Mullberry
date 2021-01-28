@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
+using Microsoft.Identity.Client;
 using Xamarin.Essentials;
 
 namespace Mulberry.Services
@@ -27,6 +28,11 @@ namespace Mulberry.Services
 
         public AuthService()
         {
+            pca = PublicClientApplicationBuilder.Create(ClientID)
+                .WithIosKeychainSecurityGroup(AppId)
+                .WithRedirectUri(RedirectUrl)
+                .WithAuthority("https://logon.microsoftonline.com/common")
+                .Build();
         }
 
         public async Task<bool> SignInAsync()
@@ -40,5 +46,8 @@ namespace Mulberry.Services
         }
 
         private readonly string AppId = "";
+        private readonly string ClientID = "";
+        private readonly string[] Scopes = { "" };
+        private readonly IPublicClientApplication pca;
     }
 }
